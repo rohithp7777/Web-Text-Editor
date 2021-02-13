@@ -27,12 +27,12 @@ body{
 }
 
 .total{
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 10vw;
+    padding-right: 10vw;
 }
 .sample-toolbar{
     height: 25px;
-    width: 80vw;
+    max-width: 80vw;
     padding-left: 1vw;
     padding-right: 1vw;
     padding-top: 0.5vw;
