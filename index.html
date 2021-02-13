@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+  <title>My text editor</title>
+<!-- The three following lines — trust me — we need this-->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <!-- some minimal design (not necessary)-->
+  <style type="text/css">
+    body{
+      text-align: left;
+      margin: 10;
+      font-family: Verdana, Arial, sans-serif;
+      font-size: 16px;
+    }
+  </style>
+     <link rel="stylesheet" href="style.css">
+
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+     <link id="theme" rel="stylesheet" type="text/css" href="dark-theme.css" />
+
+</head>
+<body>
+
+   <!-- heading -->
+    
+    <button id="theme-toggle">🌞</button>
+    <h2 class = "heading" >Web-Text editor</h2>
+
+    <div class="total">
+        <div class="sample-toolbar">
+            <a href="javascript:void(0)" style="color: black; padding: 1px;" onclick="format('bold')"><span class="fa fa-bold fa-fw"></span></a>
+            <a href="javascript:void(0)" style="color: black;padding: 1px" onclick="format('italic')"><span class="fa fa-italic fa-fw"></span></a>
+            <a href="javascript:void(0)" style="color: black;padding: 1px" onclick="format('insertunorderedlist')"><span class="fa fa-list fa-fw"></span></a>
+            <a href="javascript:void(0)" style="color: black;padding: 1px" onclick="setUrl()"><span class="fa fa-link fa-fw"></span></a>
+            <span><input id="txtFormatUrl" placeholder="url" class="form-control"></span>
+        </div>
+        
+        <div id="editor" contenteditable="true" style="min-height: 400px; width: 80vw; border: solid; border-width: 1px; padding: 1vw;"></div>
+    </div>
+    <!-- Here be our script -->
+
+    <script>
+    
+    // If there's anything in the storage
+    if (localStorage.getItem('text_in_editor') !== null) {
+ 
+        // ...then show it
+        document.getElementById('editor').innerHTML = localStorage.getItem('text_in_editor');
+    }
+
+    // listen to key presses
+    document.addEventListener('keydown', function(e) {
+
+      // once a key is pressed, save whatever's in our box to localstorage
+      localStorage.setItem('text_in_editor', document.getElementById('editor').innerHTML);
+    });
+    </script>
+    <script src="script.js"></script>
+
+ 
+</body>
+<!-- That's all folks -->
+</html>
